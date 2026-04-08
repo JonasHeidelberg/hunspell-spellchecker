@@ -17,8 +17,8 @@ var DICT = sp.parse({
     dic: fs.readFileSync(input+".dic", { encoding: "utf8" }),
     aff: fs.readFileSync(input+".aff", { encoding: "utf8" })
 });
-
-fs.writeFileSync(input+".json", JSON.stringify(DICT));
+const stringified = JSON.stringify(DICT);
+fs.writeFileSync(input+".json", stringified);
 
 console.log("Dictionary written in ", input+".json");
 

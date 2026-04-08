@@ -11,3 +11,6 @@ PFX A 0 re .
 SFX B Y 2
 SFX B 0 ed [^y]
 SFX B y ied y
+
+COMPOUNDRULE >j
+COMPOUNDRULE )k
