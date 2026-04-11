@@ -17,7 +17,20 @@ var DICT = sp.parse({
     dic: fs.readFileSync(input+".dic", { encoding: "utf8" }),
     aff: fs.readFileSync(input+".aff", { encoding: "utf8" })
 });
-const stringified = JSON.stringify(DICT);
+
+// Replacer to handle RegExp serialization
+const replacer = (key, value) => {
+    if (value instanceof RegExp) {
+        return {
+            $type: 'RegExp',
+            source: value.source,
+            flags: value.flags
+        };
+    }
+    return value;
+};
+
+const stringified = JSON.stringify(DICT, replacer);
 fs.writeFileSync(input+".json", stringified);
 
 console.log("Dictionary written in ", input+".json");
