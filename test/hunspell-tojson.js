@@ -62,7 +62,7 @@ describe('hunspell-tojson', () => {
         // Now check if spellchecker works with reloaded dictionary that WAS revived
         const spellchecker3 = new Spellchecker();
         spellchecker3.use(reloadedJson);
-        assert.deepStrictEqual(spellchecker1, spellchecker2, 
+        assert.deepStrictEqual(spellchecker1, spellchecker3, 
             'Spellchecker instances should be identical when using original vs JSON-loaded revived dictionary');   
 
             // Cleanup
