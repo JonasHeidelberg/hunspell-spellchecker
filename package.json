@@ -5,8 +5,8 @@
     "description": "Parse and use Hunspell dictionaries in Javascript",
     "main": "lib/index.js",
     "devDependencies": {
-        "esbuild": "^0.21.0",
-        "gulp": "^4.0.2",
+        "esbuild": "^0.28.0",
+        "gulp": "^5.0.1",
         "mocha": "11.7.5"
     },
     "scripts": {
