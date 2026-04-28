@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/GitbookIO/hunspell-spellchecker.png?branch=master)](https://travis-ci.org/GitbookIO/hunspell-spellchecker)
 [![NPM version](https://badge.fury.io/js/hunspell-spellchecker.svg)](http://badge.fury.io/js/hunspell-spellchecker)
 
-A lightweight spellchecker written in Javascript, it can be used in Node.JS and in the browser. It has been build to be pre-parse Hunspell dictionary to JSON.
+A lightweight spellchecker written in Javascript, it can be used in Node.JS and in the browser. It has been build to be able to pre-parse a Hunspell dictionary to JSON.
 
 ### Installation
 
@@ -31,7 +31,13 @@ var DICT = spellchecker.parse({
 });
 ```
 
-Load a serialized dictionary
+Note that if you want to store DICT into a file, you need to run JSON.stringify() with a replacer function, otherwise important data (all regular expressions) get lost. See test/hunspell-tojson.js for how to do it. For reloading the JSON, the corresponding "reviver" functionality is built into the spellchecker.use() implementation, so you can just reload with
+
+```js
+DICT = JSON.parse(fs.readFileSync(outputJsonPath, 'utf8'));
+```
+
+You then load that serialized dictionary into spellchecker with
 
 ```js
 // Load a dictionary
